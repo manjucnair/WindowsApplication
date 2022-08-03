@@ -1,0 +1,360 @@
+﻿<Window x:Class="Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wosul"
+        mc:Ignorable="d"
+        Title="Login" Height="800" Width="1000" WindowStartupLocation="CenterScreen" Background="WhiteSmoke" AllowsTransparency="False"   WindowStyle="ThreeDBorderWindow"   SizeToContent="Manual"  Icon="logo.png" Loaded="DisplayLoginScreen" WindowState="Maximized">
+    <Grid>
+        <Image HorizontalAlignment="Left"   Height="141" Margin="10,10,0,0" VerticalAlignment="Top" Width="138" Source="logo.png"/>
+        <Label  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                FontSize="20" FontWeight="Bold" Foreground="Black"
+                Margin="278,48,0,0" Width="100" Content="Login" Height="40" RenderTransformOrigin="0.145,0.2">
+
+        </Label>
+
+        <Border CornerRadius="16"
+        BorderBrush="White"
+        BorderThickness="2"
+        Background="White"
+        Margin="150,160,0,0"
+        Padding="4" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.344"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Border.Effect>
+                <DropShadowEffect Color="Green"
+                      Opacity=".50"
+                      ShadowDepth="15" />
+            </Border.Effect>
+
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Height="450" Margin="10,10,5,5" Width="400">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="148*" />
+                    <RowDefinition Height="104*" />
+                    <RowDefinition Height="103*" />
+                </Grid.RowDefinitions>
+                <Label Width="100" Height ="30" FontSize="14"  BorderThickness="1,1,1,1" HorizontalAlignment="Left" Margin="37,35,0,35" Grid.ColumnSpan="2">Email</Label>
+                <TextBox Height ="40"
+                  Name="txtUserName" Margin="37,70,20,136" TextAlignment="Left" Grid.ColumnSpan="2" BorderBrush="Gray" Grid.RowSpan="2">
+                    <TextBox.ToolTip>
+                        <ToolTip Content="Enter Your Email" />
+                    </TextBox.ToolTip>
+                    <!--<TextBox.BorderBrush>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="1,0">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="White" Offset="0.75"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="Gray" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.BorderBrush>-->
+                </TextBox>
+                <Label 
+       Grid.Row="1" Width="150" Height="30" FontSize="14" HorizontalAlignment="Left" Margin="37,28,0,88" Grid.ColumnSpan="2" >Password</Label>
+                <PasswordBox Height="40" HorizontalContentAlignment ="Left" VerticalContentAlignment="Center"
+             Grid.Row="1"
+             ToolTip="Enter Your Password"
+             Name="txtPassword"   Margin="37,64,20,42" Grid.ColumnSpan="2" BorderBrush="Gray" >
+                    <!--<PasswordBox.BorderBrush>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="1,0">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="White" Offset="0.75"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="Gray" Offset="1"/>
+                        </LinearGradientBrush>
+                    </PasswordBox.BorderBrush>-->
+                </PasswordBox>
+
+                <StackPanel Background="White"
+            Grid.Row="3"
+            Margin="0,1,10,22"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal" Width="350" Grid.ColumnSpan="3">
+                    <Button Name="btnLogin" Width="175" 
+          IsDefault="True" Foreground="White"
+          Content="Login" 
+          Click="btnLogin_Click" Height="45" Margin="0,18,0,0"  HorizontalAlignment="Center" VerticalAlignment="Top" Background="#3F729B">
+
+                        <Button.Effect>
+                            <DropShadowEffect Color="Blue"
+                        Opacity=".50"
+                        ShadowDepth="8" />
+                        </Button.Effect>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button x:Name="btnCancel" Width="175"
+          IsCancel="True" Foreground="White"
+          Content="Cancel"
+          Click="btnCancel_Click" Height="45" Background="#FF1380DA" VerticalAlignment="Top" Margin="8,18,0,0" HorizontalAlignment="Left" RenderTransformOrigin="1.129,0.455">
+                        <Button.Effect>
+                            <DropShadowEffect Color="Gray"
+                        Opacity=".50"
+                        ShadowDepth="8" />
+                        </Button.Effect>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                </StackPanel>
+                <Label 
+                Grid.Row="1" Width="359" Height="30" FontSize="14" HorizontalAlignment="Center" Margin="37,120,4,99" Content="Select Language" Grid.ColumnSpan="3" Grid.RowSpan="2" />
+
+
+                <ComboBox VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Height="30" Width="359"  Grid.Row="2" Background="white" Margin="37,14,0,0"
+          Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}" Grid.ColumnSpan="3">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ComboBoxItem}">
+                            <Setter Property="Background" Value="white"/>
+                            <Setter Property="BorderBrush" Value="white"/>
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                    <ComboBoxItem Content="English (United States)" IsSelected="True"/>
+                    <ComboBoxItem Content="Arabic"/>
+
+                </ComboBox>
+
+                <TextBlock FontSize="15" Margin="26,68,286,-3" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="0.381,0.37">
+<Hyperlink NavigateUri="http://demo.wosul.com" >
+    Forgot Password?
+  </Hyperlink>
+                </TextBlock>
+                <Label x:Name="lblError" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Grid.Row="0" Background="White" Foreground="Red"
+                FontSize="14" FontWeight="Bold"  Width="419" Height="28" Content="" Grid.ColumnSpan="3" Margin="14,0,0,0"/>
+
+
+            </Grid>
+
+
+        </Border>
+        <!--<ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" PanningMode="Both"  ManipulationBoundaryFeedback="ScrollViewerCanvas_ManipulationBoundaryFeedback">
+
+        <Grid  Height="150" Width="150" VerticalAlignment="Center" Margin="750,0,100,0" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"  ScrollViewer.VerticalScrollBarVisibility="Visible" FlowDirection="LeftToRight">
+                --><!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100*" />
+                    <RowDefinition Height="100*" />
+                  
+                </Grid.RowDefinitions>--><!--
+                <Grid.RenderTransform>
+            <TransformGroup>
+                
+        <ScaleTransform CenterX="1" CenterY="1" ScaleY="1" ScaleX="1"/>
+        <SkewTransform AngleY="0" AngleX="0"/>
+                <RotateTransform Angle="0"/>
+        
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+            <Grid.Background>
+
+                <ImageBrush ImageSource="{Binding CombinedImage}" 
+            Stretch="UniformToFill" TileMode="Tile" ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ViewportUnits="Absolute" Viewport="0,0,1024,768"/>
+                   
+
+                </Grid.Background>
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    
+                    <BeginStoryboard>
+                        <Storyboard>
+
+                                <RectAnimation Storyboard.TargetProperty="Background.Viewport"
+                           To="-1024,0,1024,768" Duration="0:0:10" 
+                           RepeatBehavior="Forever"/>
+
+                            </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
+
+        </Grid>
+        </ScrollViewer>
+
+
+
+
+
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" PanningMode="Both"  ManipulationBoundaryFeedback="ScrollViewerCanvas_ManipulationBoundaryFeedback">
+
+            <Grid  Height="150" Width="150" VerticalAlignment="Center" Margin="1100,0,100,0" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"  ScrollViewer.VerticalScrollBarVisibility="Visible" FlowDirection="LeftToRight">
+                --><!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100*" />
+                    <RowDefinition Height="100*" />
+                  
+                </Grid.RowDefinitions>--><!--
+                <Grid.RenderTransform>
+                    <TransformGroup>
+
+                        <ScaleTransform CenterX="1" CenterY="1" ScaleY="1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+
+                        <TranslateTransform X="100" Y="100"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.Background>
+
+                    <ImageBrush ImageSource="{Binding CombinedImage}" 
+            Stretch="UniformToFill" TileMode="Tile" ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ViewportUnits="Absolute" Viewport="0,0,1024,768"/>
+
+
+                </Grid.Background>
+                <Grid.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <RectAnimation Storyboard.TargetProperty="Background.Viewport"
+                           To="-1024,0,1024,768" Duration="0:0:10" 
+                           RepeatBehavior="Forever"/>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Grid.Triggers>
+
+            </Grid>
+        </ScrollViewer>
+
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" PanningMode="Both"  ManipulationBoundaryFeedback="ScrollViewerCanvas_ManipulationBoundaryFeedback">
+
+            <Grid  Height="150" Width="150" VerticalAlignment="Center" Margin="750,350,100,0" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"  ScrollViewer.VerticalScrollBarVisibility="Visible" FlowDirection="LeftToRight">
+                --><!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100*" />
+                    <RowDefinition Height="100*" />
+                  
+                </Grid.RowDefinitions>--><!--
+                <Grid.RenderTransform>
+                    <TransformGroup>
+
+                        <ScaleTransform CenterX="1" CenterY="1" ScaleY="1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.Background>
+
+                    <ImageBrush ImageSource="{Binding CombinedImage}" 
+            Stretch="UniformToFill" TileMode="Tile" ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ViewportUnits="Absolute" Viewport="0,0,1024,768"/>
+
+
+                </Grid.Background>
+                <Grid.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <RectAnimation Storyboard.TargetProperty="Background.Viewport"
+                           To="-1024,0,1024,768" Duration="0:0:10" AutoReverse="True"
+                           RepeatBehavior="Forever"/>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    
+                    
+                </Grid.Triggers>
+
+            </Grid>
+        </ScrollViewer>-->
+
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalScrollBarVisibility="Disabled" PanningMode="Both"  ManipulationBoundaryFeedback="ScrollViewerCanvas_ManipulationBoundaryFeedback">
+          
+            <Grid  Height="250" Width="250" VerticalAlignment="Center" Margin="1100,350,100,0" >
+                
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100*" />
+                    <RowDefinition Height="100*" />
+                  
+                </Grid.RowDefinitions>-->
+                <Grid.RenderTransform>
+                    <TransformGroup>
+
+                        <ScaleTransform CenterX="1" CenterY="1" ScaleY="1" ScaleX="1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.Background>
+
+                    <ImageBrush ImageSource="{Binding CombinedImage}" 
+            Stretch="UniformToFill" TileMode="Tile" 
+            ViewportUnits="Absolute" Viewport="0,0,1024,768"/>
+
+
+                </Grid.Background>
+                <Grid.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <RectAnimation Storyboard.TargetProperty="Background.Viewport" From="0,0,0,0"
+                           To="1,1,1,1" Duration="0:0:2" 
+                           RepeatBehavior="Forever"/>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Grid.Triggers>
+
+            </Grid>
+        </ScrollViewer>
+        <Grid>
+            <Image Name="picHolder" Height="150" Width="150" Stretch="Uniform"  Source="Login gallery/1.jpg" Margin="675,10,90,56" />
+        </Grid>
+
+
+    </Grid>
+
+</Window>
